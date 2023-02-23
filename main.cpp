@@ -1,13 +1,16 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+
 using namespace std;
 
 int n, m, temp = 0, k ;
 float x;
 vector < int > tab;
-void bin(){
-cout << "Podaj n" << endl;
+
+void bin()
+{
+    cout << "Podaj liczbe" << endl;
     cin >> n;
 
     while(n != 0)
@@ -24,6 +27,7 @@ cout << "Podaj n" << endl;
 
     }
     reverse(tab.begin(), tab.end());
+
     for(int i = 0; i < tab.size(); i++)
     {
         cout << tab[i];
@@ -41,7 +45,7 @@ cout << "Podaj n" << endl;
         }
     }
 
-    cout << "\n" << m;
+    cout << "\n" << m << endl;
 }
 
 void troj()
@@ -50,40 +54,52 @@ void troj()
 
     cout << "podaj swoja liczba w zakresie od 0 do 1 " << endl;
     cin >>x ;
+
     while(x< 0 || x>1)
     {
 
         cout << "podaj liczbe jeszcze raz jeeszcze raz" << endl;
         cin >>x ;
     }
+
     cout << "podaj ile liczb po przecinku ma byc " << endl;
     cin >> k;
     cout << "0,";
 
 
-    for(int i = 1; i = k; i++ )
+    for(int i = 1; i <= k; i++ )
     {
-        if(x>=2/3)
+        if(x>=(float)2 / 3)
         {
             cout<< "2";
         }
-        else if(x >= 1/3)
+        else if(x >= (float)1/3)
         {
             cout<< "1";
         }
         else
         {
             cout<< "0";
-            x *= 3;
+
+        }
+        x *= 3;
+        if(x >= 2)
+        {
+            x -=2;
+        }
+        else if(x >= 1)
+        {
+            x-=1;
         }
     }
 }
 
 int main()
 {
-
-troj();
+    bin();
+    troj();
 
 
     return 0;
 }
+
